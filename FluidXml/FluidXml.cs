@@ -128,6 +128,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string value)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -148,6 +151,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string[] attrs, string value)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -178,6 +184,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, params XmlNode[] nodes)
     {
+      if (xmlNode == null)
+        return null;
+
       foreach (var node in nodes)
         xmlNode.AppendChild(node);
 
@@ -195,6 +204,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, string tagName, params XmlNode[] nodes)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -215,6 +227,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string value)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -235,6 +250,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string[] attrs, string value)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -257,6 +275,9 @@ namespace FluidXml
     /// <returns>Itself</returns>
     public static XmlNode Insert(this XmlNode xmlNode, params XmlNode[] nodes)
     {
+      if (xmlNode == null)
+        return null;
+
       foreach (var node in nodes)
         xmlNode.PrependChild(node);
 
@@ -274,6 +295,9 @@ namespace FluidXml
     /// <returns>Itself with new nodes</returns>
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, params XmlNode[] nodes)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -296,6 +320,9 @@ namespace FluidXml
     /// <returns>Itself with new nodes inserted</returns>
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string[] attrs, params XmlNode[] nodes)
     {
+      if (xmlNode == null)
+        return null;
+
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
@@ -319,6 +346,9 @@ namespace FluidXml
     /// <returns>Itself with newly inserted node</returns>
     public static XmlNode InsertBefore(this XmlNode xmlNode, string childName, XmlNode newNode)
     {
+      if (xmlNode == null)
+        return null;
+
       if (xmlNode[childName] != null)
         xmlNode.InsertBefore(newNode, xmlNode[childName]);
       return xmlNode;
@@ -333,6 +363,9 @@ namespace FluidXml
     /// <returns>Itself with newly inserted node</returns>
     public static XmlNode InsertAfter(this XmlNode xmlNode, string childName, XmlNode newNode)
     {
+      if (xmlNode == null)
+        return null;
+
       if (xmlNode[childName] != null)
         xmlNode.InsertAfter(newNode, xmlNode[childName]);
       return xmlNode;
@@ -347,6 +380,9 @@ namespace FluidXml
     /// <returns>New element</returns>
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string tagValue)
     {
+      if (doc == null)
+        return null;
+
       var elem = doc.CreateElement(tagName);
       elem.InnerText = tagValue;
       return elem;
@@ -361,6 +397,9 @@ namespace FluidXml
     /// <returns>New element with given nodes</returns>
     public static XmlElement NewElement(this XmlDocument doc, string tagName, params XmlNode[] nodes)
     {
+      if (doc == null)
+        return null;
+
       var elem = doc.CreateElement(tagName);
       foreach (var node in nodes)
         elem.AppendChild(node);
@@ -377,6 +416,9 @@ namespace FluidXml
     /// <returns>New element with given attributes and value</returns>
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string[] attrs, string tagValue)
     {
+      if (doc == null)
+        return null;
+
       var elem = doc.CreateElement(tagName);
       elem.InnerText = tagValue;
 
@@ -396,6 +438,9 @@ namespace FluidXml
     /// <returns>New element with given nodes</returns>
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string[] attrs, params XmlNode[] nodes)
     {
+      if (doc == null)
+        return null;
+
       var elem = doc.CreateElement(tagName);
       foreach (var node in nodes)
         elem.AppendChild(node);
@@ -442,55 +487,58 @@ namespace FluidXml
       XmlNode currNode = (xmlNode is XmlDocument) ? ((XmlDocument)xmlNode).DocumentElement : xmlNode;
       List<XmlNode> lastVisited = new List<XmlNode>();
 
-      while (nodeStack.Count > 0 || currNode != null)
+      if (xmlNode != null)
       {
-        // Travel down descendants until you can't travel anymore
-        if (currNode != null)
+        while (nodeStack.Count > 0 || currNode != null)
         {
-          // save state before moving to the next descendant
-          nodeStack.Push(currNode);
-
-          // Make sure you move to a descendant you haven't visited yet
-          currNode = currNode.ChildNodes.Cast<XmlNode>().Where(n => !lastVisited.Contains(n)).FirstOrDefault();
-
-          // Save the state of all the siblings you've visited
-          lastVisitedStack.Push(lastVisited);
-
-          lastVisited = new List<XmlNode>();
-        }
-        else
-        {
-          // Check to see if there are any siblings who haven't been visited yet,
-          // if so let's visit them first.
-          var peekNode = nodeStack.Peek();
-          var otherNode = peekNode.ChildNodes.Cast<XmlNode>().Where(n => !lastVisited.Contains(n)).FirstOrDefault();
-          if (otherNode != null)
+          // Travel down descendants until you can't travel anymore
+          if (currNode != null)
           {
-            currNode = otherNode;
+            // save state before moving to the next descendant
+            nodeStack.Push(currNode);
+
+            // Make sure you move to a descendant you haven't visited yet
+            currNode = currNode.ChildNodes.Cast<XmlNode>().Where(n => !lastVisited.Contains(n)).FirstOrDefault();
+
+            // Save the state of all the siblings you've visited
+            lastVisitedStack.Push(lastVisited);
+
+            lastVisited = new List<XmlNode>();
           }
           else
           {
-            // Visit the node
-            if (types.Length > 0 && !types.Contains(XmlNodeType.None))
+            // Check to see if there are any siblings who haven't been visited yet,
+            // if so let's visit them first.
+            var peekNode = nodeStack.Peek();
+            var otherNode = peekNode.ChildNodes.Cast<XmlNode>().Where(n => !lastVisited.Contains(n)).FirstOrDefault();
+            if (otherNode != null)
             {
-              if (types.Contains(peekNode.NodeType))
-                yield return peekNode;
-              if (types.Contains(XmlNodeType.Attribute))
-              {
-                if (peekNode.Attributes != null && peekNode.Attributes.Count > 0)
-                  foreach (XmlAttribute attrib in peekNode.Attributes)
-                    yield return attrib;
-              }
+              currNode = otherNode;
             }
-            else  // if no node type pass all nodes
-              yield return peekNode;
+            else
+            {
+              // Visit the node
+              if (types.Length > 0 && !types.Contains(XmlNodeType.None))
+              {
+                if (types.Contains(peekNode.NodeType))
+                  yield return peekNode;
+                if (types.Contains(XmlNodeType.Attribute))
+                {
+                  if (peekNode.Attributes != null && peekNode.Attributes.Count > 0)
+                    foreach (XmlAttribute attrib in peekNode.Attributes)
+                      yield return attrib;
+                }
+              }
+              else  // if no node type pass all nodes
+                yield return peekNode;
 
-            // Since we're about to move back up the tree, 
-            // we need to restore the previous state
-            lastVisited = lastVisitedStack.Pop();
+              // Since we're about to move back up the tree, 
+              // we need to restore the previous state
+              lastVisited = lastVisitedStack.Pop();
 
-            // Add the visited node to the list of visited
-            lastVisited.Add(nodeStack.Pop());
+              // Add the visited node to the list of visited
+              lastVisited.Add(nodeStack.Pop());
+            }
           }
         }
       }
@@ -504,17 +552,20 @@ namespace FluidXml
     /// <returns>Enumerable set of child XmlNodes</returns>
     public static IEnumerable<XmlNode> Elements(this XmlNode node, string elementName = null)
     {
-      if (string.IsNullOrEmpty(elementName))
+      if (node != null)
       {
-        foreach (XmlNode child in node.ChildNodes)
-          if (node.NodeType == XmlNodeType.Element)
-            yield return child;
-      }
-      else
-      {
-        foreach (XmlNode child in node.ChildNodes)
-          if (node.NodeType == XmlNodeType.Element && node.LocalName == elementName)
-            yield return child;
+        if (string.IsNullOrEmpty(elementName))
+        {
+          foreach (XmlNode child in node.ChildNodes)
+            if (node.NodeType == XmlNodeType.Element)
+              yield return child;
+        }
+        else
+        {
+          foreach (XmlNode child in node.ChildNodes)
+            if (node.NodeType == XmlNodeType.Element && node.LocalName == elementName)
+              yield return child;
+        }
       }
     }
 
@@ -529,15 +580,18 @@ namespace FluidXml
     /// The $ can be followed by any number of characters and digits (including none). 
     /// Arguments are substituted in order.
     /// </param>
-    /// <returns>Maybe an XmlNode, or Maybe.Not</returns>
-    public static Maybe<XmlNode> XPathSelectSingle(this XmlNode node, string xpath, params string[] args)
+    /// <returns>An XmlNode, or null if not found</returns>
+    public static XmlNode XPathSelectSingle(this XmlNode node, string xpath, params string[] args)
     {
+      if (node == null)
+        return null;
+
       string queryableXPath = xpath;
       if (args.Length > 0)
       {
         queryableXPath = ReplaceXPathArgs(xpath, args);
       }
-      return Maybe.From(node.SelectSingleNode(queryableXPath));
+      return null;
     }
 
     /// <summary>
@@ -625,21 +679,13 @@ namespace FluidXml
     /// </returns>
     public static IEnumerable<XmlNode> XPathSelectMany(this XmlNode node, string xpath, params string[] args)
     {
+      if (node == null)
+        return null;
+
       string queryableXPath = xpath;
       if (args.Length > 0)
         queryableXPath = ReplaceXPathArgs(xpath, args);
       return node.SelectNodes(queryableXPath).Cast<XmlNode>();
-    }
-
-    /// <summary>
-    /// Maybe returns a child of a give node
-    /// </summary>
-    /// <param name="node"></param>
-    /// <param name="elementName">Name of the child node</param>
-    /// <returns>Maybe an XmlNode, or Maybe.Not</returns>
-    public static Maybe<XmlNode> GetChild(this XmlNode node, string elementName)
-    {
-      return Maybe.From((XmlNode)node[elementName]);
     }
 
     /// <summary>
@@ -652,6 +698,9 @@ namespace FluidXml
     /// <returns>An XDocument</returns>
     public static XDocument ToXDocument(this XmlDocument document, LoadOptions options = LoadOptions.None)
     {
+      if (document == null)
+        throw new ArgumentNullException("document");
+
       using (XmlNodeReader reader = new XmlNodeReader(document))
       {
         return XDocument.Load(reader, options);
@@ -665,10 +714,11 @@ namespace FluidXml
     /// <param name="elem"></param>
     /// <param name="options">Load Options</param>
     /// <returns>Maybe an XElement, or Maybe.Not</returns>
-    public static Maybe<XElement> ToXElement(this XmlNode node, LoadOptions options = LoadOptions.None)
+    public static XElement ToXElement(this XmlNode node, LoadOptions options = LoadOptions.None)
     {
       if (node.NodeType != XmlNodeType.Element)
-        return Maybe.Not;
+        throw new ArgumentException("Node must be an element type");
+
       using (XmlNodeReader reader = new XmlNodeReader(node))
       {
         return XElement.Load(reader, options);
@@ -682,20 +732,28 @@ namespace FluidXml
     /// <param name="document">The owning XmlDocument for the converted node</param>
     /// <param name="options">Reader Options</param>
     /// <returns>Maybe an XmlNode</returns>
-    public static Maybe<XmlNode> ToXmlElement(this XElement elem, XmlDocument document, ReaderOptions options = ReaderOptions.None)
+    public static XmlNode ToXmlElement(this XElement elem, XmlDocument document, ReaderOptions options = ReaderOptions.None)
     {
+      if (elem == null)
+        throw new ArgumentNullException("elem");
+      else if (document == null)
+        throw new ArgumentNullException("document");
+
       try
       {
         return document.ReadNode(elem.CreateReader(options));
       }
       catch
       {
-        return Maybe.Not;
+        return null;
       }
     }
 
     private static bool TryGetXmlDocument(XmlNode node, out XmlDocument doc)
     {
+      if (node == null)
+        throw new ArgumentNullException("node");
+
       doc = node.OwnerDocument;
       if (doc == null)
       {
