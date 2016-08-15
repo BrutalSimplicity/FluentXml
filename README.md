@@ -1,0 +1,3 @@
+# FluidXml - XmlDocument Extensions
+
+This package includes extensions to the XmlDocument interface to make it a bit more modern and XLinq-like. If you have a choice, I would prefer XLinq to using these extensions; however, some may have already invested much time into the XmlDocument interface, and would like to avoid the cost of switching. You might also consider the performance implications, since loading an Xml tree in .Net is not a trivial task in both memory or speed.
