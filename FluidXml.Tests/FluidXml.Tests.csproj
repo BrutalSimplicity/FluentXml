@@ -36,6 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="XmlDiffLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XmlDiffLib.1.0.0\lib\net40\XmlDiffLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +56,49 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FluidXmlTests.cs" />
+    <Compile Include="TestResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluidXml\FluidXml.csproj">
+      <Project>{29720cc4-fbdf-4526-a403-4b4db50735ce}</Project>
+      <Name>FluidXml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\519b497fPolicy.txt" />
+    <Content Include="Resources\aggregateexpected.xml" />
+    <Content Include="Resources\aggregatetest.xml" />
+    <Content Include="Resources\alliedreqxml.xml" />
+    <Content Include="Resources\AspenExpected.xml" />
+    <Content Include="Resources\AspenResponse.xml" />
+    <Content Include="Resources\desc1actual.xml" />
+    <Content Include="Resources\desc1expected.xml" />
+    <Content Include="Resources\desc2actual.xml" />
+    <Content Include="Resources\desc2expected.xml" />
+    <Content Include="Resources\desc3actual.xml" />
+    <Content Include="Resources\desc3expected.xml" />
+    <Content Include="Resources\desc4actual.xml" />
+    <Content Include="Resources\desc4expected.xml" />
+    <Content Include="Resources\HallmarkResponse.xml" />
+    <Content Include="Resources\Policy21b2c5fe.txt" />
+    <Content Include="Resources\TX_b74e03f8Policy.txt" />
+    <Content Include="Resources\updatenodeexpected.xml" />
+    <Content Include="Resources\updatenodetest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

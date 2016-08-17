@@ -1,22 +1,13 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using System.Xml;
-using System.Text;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ITC.Insurance.DataT.New;
 using XmlDiffLib;
-using ITC.Utilities;
-using ITC.Utilities.New;
-using MaybeNull;
-using ITC.Insurance.DataTransformation;
-using ITC.Insurance.AU;
 
-namespace ITC.Insurance.DataT.New.Test
+namespace FluidXml.Tests
 {
   [TestClass]
-  public class XmlExtensionTests
+  public class FluidXmlTests
   {
     [TestMethod]
     public void InsertXmlTest()
@@ -124,7 +115,7 @@ namespace ITC.Insurance.DataT.New.Test
       // Now, let's try removing all CurrentTermAmt nodes under PersVeh
       xmlDoc.LoadXml(TestResources.desc3actual);
       (from coverage in xmlDoc.XPathSelectMany("//PersVeh[@id = $id and @RatedDriverRef = $driver]/Coverage", "1", "1")
-       where coverage.GetChild("CurrentTermAmt").HasValue
+       where coverage["CurrentTermAmt"].HasValue()
        select coverage["CurrentTermAmt"]).Remove();
       diff = new XmlDiff(xmlDoc.InnerXml, TestResources.desc3expected);
       Assert.IsTrue(diff.CompareDocuments(new XmlDiffOptions() { TwoWayMatch = true }));
@@ -157,26 +148,22 @@ namespace ITC.Insurance.DataT.New.Test
                              group coverage by vehicle.Attributes["id"] into pair
                              select new
                              {
-                               VehId = ITCConvert.ToInt32(pair.Key.Value.Remove(0, 1), 0),
+                               VehId = int.Parse(pair.Key.Value.Remove(0, 1)),
                                Coverages = from coverage in pair
-                                           where coverage.GetChild("CurrentTermAmt").HasValue
+                                           where coverage["CurrentTermAmt"].HasValue()
                                            select new
                                            {
-                                             Code = coverage.GetChild("CoverageCd").Select(n => n.InnerText).Else(string.Empty),
+                                             Code = coverage["CoverageCd"].GetValue(),
                                              Limit1 = coverage.XPathSelectSingle("Limit[LimitAppliesToCd='PerPerson']/FormatInteger")
-                                                              .Select(n => ITCConvert.ToInt32(n.InnerText, ITCConstants.InvalidNum))
-                                                              .Else(coverage.XPathSelectSingle("Limit[1]/FormatInteger")
-                                                                            .Select(n => ITCConvert.ToInt32(n.InnerText, ITCConstants.InvalidNum))
-                                                                            .Else(ITCConstants.InvalidNum)),
+                                                              .GetValueAsInt(
+                                                                coverage.XPathSelectSingle("Limit/FormatInteger").GetValueAsInt()),
                                              Limit2 = coverage.XPathSelectSingle("Limit[LimitAppliesToCd='PerAcc']/FormatInteger")
-                                                              .Select(n => ITCConvert.ToInt32(n.InnerText, ITCConstants.InvalidNum))
-                                                              .Else(ITCConstants.InvalidNum),
+                                                              .GetValueAsInt(
+                                                                 coverage.XPathSelectSingle("Limit/FormatInteger").GetValueAsInt()),
                                              Deductible = coverage.XPathSelectSingle("Deductible/FormatInteger")
-                                                                  .Select(n => ITCConvert.ToInt32(n.InnerText, ITCConstants.InvalidNum))
-                                                                  .Else(ITCConstants.InvalidNum),
+                                                                  .GetValueAsInt(),
                                              Premium = coverage.XPathSelectSingle("CurrentTermAmt/Amt")
-                                                               .Select(n => ITCConvert.ToDouble(n.InnerText, 0.0))
-                                                               .Else(ITCConstants.InvalidNum)
+                                                               .GetValueAsDouble()
                                            }
                              };
       var vehicleList = vehicleCoverages.ToList();
@@ -214,15 +201,15 @@ namespace ITC.Insurance.DataT.New.Test
     {
       XmlDocument xmlDoc = new XmlDocument();
       xmlDoc.LoadXml(TestResources.HallmarkResponse);
-      var xmlNode = xmlDoc.XPathSelectSingle("//PersVeh/Coverage[CoverageCd='BI']").Single();
-      XElement xElem = xmlNode.ToXElement().Single();
+      var xmlNode = xmlDoc.XPathSelectSingle("//PersVeh/Coverage[CoverageCd='BI']");
+      XElement xElem = xmlNode.ToXElement();
       Assert.AreEqual(xmlNode.OuterXml, xElem.ToString(SaveOptions.DisableFormatting));
       (from elem in xElem.Elements("Limit")
        where elem.Element("LimitAppliesToCd").Value == "PerAcc"
        select elem)
       .ToList()
       .ForEach(e => e.Value = "PerAccident");
-      xmlNode = xElem.ToXmlElement(xmlDoc).Single();
+      xmlNode = xElem.ToXmlElement(xmlDoc);
       Assert.AreEqual(xmlNode.OuterXml, xElem.ToString(SaveOptions.DisableFormatting));
     }
 
@@ -241,229 +228,6 @@ namespace ITC.Insurance.DataT.New.Test
       count = 1;
       foreach (var node in xmlDoc.DocumentElement.Elements("Item"))
         Assert.AreEqual(count++, node.InnerText);
-    }
-
-    /// <summary>
-    /// TEsts various Xml Extension methods
-    /// </summary>
-    [TestMethod]
-    public void TestCoverageCreation()
-    {
-      string[] validCoverages = new string[]
-      {
-        "BI",
-        "PD",
-        "COLL",
-        "PIP",
-        "COMP",
-        "UM",
-        "UMPD",
-        "CRA",
-      };
-
-      AUPolicy policy = new AUPolicy();
-      policy.Insured = new AUDriver();
-      TT2AUBridge bridge = new TT2AUBridge(TestResources.TX_b74e03f8Policy, policy);
-      bridge.ImportPolicyInfo();
-
-      XmlDocument xmlDocExpected = new XmlDocument();
-      XmlDocument xmlDocActual = new XmlDocument();
-      xmlDocExpected.LoadXml(TestResources.AspenExpected);
-      xmlDocActual.LoadXml(TestResources.AspenExpected);
-      AcordXmlAUBridge xbridge = new AcordXmlAUBridge();
-      xbridge.XmlDoc = xmlDocActual;
-
-      // Remove all coverage nodes so that we can test we create
-      // the same xml
-      (from veh in xmlDocActual.XPathSelectMany("//PersVeh")
-       from cov in veh.XPathSelectMany("Coverage")
-       select cov).Remove();
-
-      #region Large Coverage Branch
-      for (int i = 0; i < policy.NumOfCars; i++)
-      {
-        var car = policy.Cars[i];
-        var node = xbridge.GetVehicleNode(i);
-        if (!(node is Empty))
-        {
-          foreach (var coverage in validCoverages)
-          {
-            switch (coverage)
-            {
-              case "BI":
-                {
-                  if (car.LiabBI)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage(AcordXmlConstantsClass.Coverages.LiabBI,
-                        new Limit[]
-                        {
-                          xbridge.CreateLimit(car.LiabLimits1*1000, AcordXmlConstantsClass.LimitAppliesTo.PerPerson),
-                          xbridge.CreateLimit(car.LiabLimits2*1000, AcordXmlConstantsClass.LimitAppliesTo.PerAccident)
-                        }));
-                  }
-                  break;
-                }
-              case "PD":
-                {
-                  if (car.LiabPD)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("PD",
-                        new Limit[]
-                        {
-                          xbridge.CreateLimit(car.LiabLimits3*1000, AcordXmlConstantsClass.LimitAppliesTo.PropertyDamage)
-                        }));
-                  }
-                  break;
-                }
-              case "COLL":
-                {
-                  if (car.Comp)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("COLL",
-                        new Deductible[]
-                        {
-                          xbridge.CreateDeductible(car.CollDed, AcordXmlConstantsClass.DeductibleType.PerClaim)
-                        },
-                        new Option[]
-                        {
-                          // This is only here to mimic how the core creates this section.
-                          xbridge.CreateOption("Misc1", xbridge.AcordXmlConstants.MICollTypeStrings[IndexLib.GetStringIndex(car.CollType, AUConstants.MICollTypeChars, 0)])
-                        }));
-                  }
-                  break;
-                }
-              case "PIP":
-                {
-                  if (car.PIP)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("PIP",
-                        new Limit[]
-                        {
-                          xbridge.CreateLimit(car.PIPLimit, AcordXmlConstantsClass.LimitAppliesTo.PerPerson)
-                        },
-                        new Option[]
-                        {
-                          xbridge.CreateOption("Misc2", xbridge.AcordXmlConstants.StackedStrings[Convert.ToInt32(car.CoStackedPIP)])
-                        }));
-                  }
-                  break;
-                }
-              case "COMP":
-                {
-                  if (car.Comp)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("COMP",
-                        new Deductible[]
-                        {
-                          xbridge.CreateDeductible(car.CompDed, AcordXmlConstantsClass.DeductibleType.PerClaim)
-                        }));
-                  }
-                  break;
-                }
-              case "UM":
-                {
-                  if (car.UninsBI)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("UM",
-                        new Limit[]
-                          {
-                            xbridge.CreateLimit(car.UninsBILimits1*1000, AcordXmlConstantsClass.LimitAppliesTo.PerPerson),
-                            xbridge.CreateLimit(car.UninsBILimits2*1000, AcordXmlConstantsClass.LimitAppliesTo.PerAccident)
-                          },
-                        new Option[]
-                          {
-                            xbridge.CreateOption("Option 1", xbridge.AcordXmlConstants.StackedStrings[Convert.ToInt32(car.CoStackedUM)])
-                          }));
-                  }
-                  break;
-                }
-              case "UMPD":
-                {
-                  if (car.UninsPD)
-                  {
-                    node.Add(
-                      xbridge.CreateCoverage("UMPD",
-                        new Limit[]
-                        {
-                          xbridge.CreateLimit(car.UninsPDLimit*1000, AcordXmlConstantsClass.LimitAppliesTo.PerAccident)
-                        },
-                        new Deductible[]
-                        {
-                          xbridge.CreateDeductible(car.UninsPDDed, AcordXmlConstantsClass.DeductibleType.PerClaim)
-                        }));
-                  }
-                  break;
-                }
-              case "CRA":
-                {
-                  // This is always written for some reason
-                  node.Add(xbridge.CreateCoverage("CRA"));
-                  break;
-                }
-              default:
-                break;
-            }
-          }
-        }
-      }
-      #endregion
-
-      XmlDiff diff = new XmlDiff(xmlDocExpected.InnerXml, xmlDocActual.InnerXml);
-      Assert.IsTrue(diff.CompareDocuments(new XmlDiffOptions() { TwoWayMatch = true }));
-    }
-
-
-    [TestMethod]
-    public void AddCoverageTest()
-    {
-      XmlDocument xmlDoc = new XmlDocument();
-      AcordXmlAUBridge bridge = new AcordXmlAUBridge();
-      xmlDoc = bridge.XmlDoc;
-      string expected = "<Root><Coverage><CoverageCd>COMP</CoverageCd><CoverageDesc>ComprehensiveCoverage</CoverageDesc><Deductible><FormatInteger>500</FormatInteger><DeductibleTypeCd>CL</DeductibleTypeCd></Deductible><CurrentTermAmt><Amt>0</Amt></CurrentTermAmt></Coverage></Root>";
-
-      // These are just test cases
-      // Use CreateCoverage(coverageCd, coverageDescription, ...) instead
-      var elem =
-        xmlDoc.NewElement("Root",
-          bridge.CreateCoverage(AcordXmlConstantsClass.Coverages.Comp,
-                  new Deductible[]
-                  {
-                    bridge.CreateDeductible(500, AcordXmlConstantsClass.DeductibleType.PerClaim)
-                  })
-                .InsertAfter("CoverageCd", xmlDoc.NewElement("CoverageDesc", "ComprehensiveCoverage"))
-                .Add("CurrentTermAmt",
-                      xmlDoc.NewElement("Amt", "0")));
-      bridge.XmlDoc.Add(elem);
-      Assert.AreEqual(expected, bridge.XmlDoc.InnerXml);
-
-      xmlDoc = new XmlDocument();
-      bridge.XmlDoc = xmlDoc;
-      bool someCondition = false;
-      xmlDoc.Add(
-        xmlDoc.NewElement("Root",
-          bridge.CreateCoverage(AcordXmlConstantsClass.Coverages.Comp, "ComprehensiveCoverage",
-                  new Limit[]
-                  {
-                    null, // nulls are ignored
-                    null,
-                  },
-                  new Deductible[]
-                  {
-                    bridge.CreateDeductible(500, AcordXmlConstantsClass.DeductibleType.PerClaim)
-                  },
-                  new Option[]
-                  {
-                    (someCondition) ? bridge.CreateOption("Misc1", "NA") : null
-                  })
-                .Add("CurrentTermAmt",
-                  xmlDoc.NewElement("Amt", "0"))));
-      Assert.AreEqual(expected, xmlDoc.InnerXml);
     }
 
     /// <summary>
@@ -493,7 +257,7 @@ namespace ITC.Insurance.DataT.New.Test
       xmlDoc.LoadXml(TestResources.alliedreqxml);
       var node = xmlDoc.SelectSingleNode("//HomeLineBusiness/Dwell/Coverage[CoverageCd=\"DWELL\"]/Limit");
       Assert.IsTrue(node.TryUpdateElement("FormatInteger", "150000"));
-      Assert.AreEqual("150000", xmlDoc.XPathSelectSingle("//HomeLineBusiness/Dwell/Coverage[CoverageCd='DWELL']/Limit/FormatInteger").Select(n => n.InnerText));
+      Assert.AreEqual("150000", xmlDoc.XPathSelectSingle("//HomeLineBusiness/Dwell/Coverage[CoverageCd='DWELL']/Limit/FormatInteger").GetValue());
     }
   }
 }

@@ -1,0 +1,1747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACORD xmlns:com.hallmark="http://www.hallmarkgrp.com">
+  <Status>
+    <StatusCd>0</StatusCd>
+    <StatusDesc>ACORD Success</StatusDesc>
+  </Status>
+  <InsuranceSvcRs>
+    <RqUID>73777bb6-6e26-4dcf-8005-ca0784355d69</RqUID>
+    <PersAutoPolicyQuoteInqRs>
+      <MsgStatus>
+        <MsgStatusCd>Success</MsgStatusCd>
+        <MsgStatusDesc>Personal Auto Policy Success</MsgStatusDesc>
+      </MsgStatus>
+      <RqUID>73777bb6-6e26-4dcf-8005-ca0784355d69</RqUID>
+      <TransactionRequestDt>2016-04-11T13:03:05</TransactionRequestDt>
+      <TransactionEffectiveDt>2016-04-11</TransactionEffectiveDt>
+      <CurCd>USD</CurCd>
+      <Producer>
+        <GeneralPartyInfo>
+          <NameInfo>
+            <PersonName>
+              <Surname>Jackson</Surname>
+              <GivenName>Brian</GivenName>
+            </PersonName>
+          </NameInfo>
+          <Addr>
+            <AddrTypeCd>StreetAddress</AddrTypeCd>
+            <Addr1>123 Location Street</Addr1>
+            <Addr2>Suite 123</Addr2>
+            <City>Location City</City>
+            <StateProvCd>TX</StateProvCd>
+            <PostalCode>75006</PostalCode>
+          </Addr>
+          <Communications>
+            <PhoneInfo>
+              <PhoneTypeCd>Phone</PhoneTypeCd>
+              <CommunicationUseCd>Alternate</CommunicationUseCd>
+              <PhoneNumber>+1-333-2224444</PhoneNumber>
+            </PhoneInfo>
+            <PhoneInfo>
+              <PhoneTypeCd>Fax</PhoneTypeCd>
+              <CommunicationUseCd>Business</CommunicationUseCd>
+              <PhoneNumber>+1-777-1119998</PhoneNumber>
+            </PhoneInfo>
+            <PhoneInfo>
+              <PhoneTypeCd>Phone</PhoneTypeCd>
+              <CommunicationUseCd>Business</CommunicationUseCd>
+              <PhoneNumber>+1-972-2453660</PhoneNumber>
+            </PhoneInfo>
+          </Communications>
+        </GeneralPartyInfo>
+        <ItemIdInfo>
+          <AgencyId>4288888-000-000</AgencyId>
+        </ItemIdInfo>
+        <ProducerInfo>
+          <ContractNumber>4288888-000-000</ContractNumber>
+        </ProducerInfo>
+      </Producer>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo>
+            <PersonName>
+              <Surname>QuoteFour</Surname>
+              <GivenName>Test</GivenName>
+            </PersonName>
+          </NameInfo>
+          <Addr>
+            <AddrTypeCd>MailingAddress</AddrTypeCd>
+            <Addr1>123 4Cars4Drivers</Addr1>
+            <City>BARDSTOWN</City>
+            <StateProvCd>KY</StateProvCd>
+            <PostalCode>40004</PostalCode>
+            <County>NELSON</County>
+          </Addr>
+          <Communications>
+            <PhoneInfo>
+              <PhoneTypeCd>Phone</PhoneTypeCd>
+              <CommunicationUseCd>Home</CommunicationUseCd>
+              <PhoneNumber>+1-270-5165165</PhoneNumber>
+            </PhoneInfo>
+            <com.hallmark_contactmethod>None</com.hallmark_contactmethod>
+          </Communications>
+        </GeneralPartyInfo>
+        <InsuredOrPrincipalInfo>
+          <InsuredOrPrincipalRoleCd>Insured</InsuredOrPrincipalRoleCd>
+          <PersonInfo>
+            <GenderCd>M</GenderCd>
+            <BirthDt>1980-10-01</BirthDt>
+          </PersonInfo>
+        </InsuredOrPrincipalInfo>
+      </InsuredOrPrincipal>
+      <PersPolicy>
+        <LOBCd>AUTOP</LOBCd>
+        <LOBSubCd>NSTD</LOBSubCd>
+        <ControllingStateProvCd>KY</ControllingStateProvCd>
+        <ContractTerm>
+          <EffectiveDt>2016-04-11</EffectiveDt>
+          <ExpirationDt>2016-10-11</ExpirationDt>
+          <StartTime>2016-04-11T00:00:00</StartTime>
+          <EndTime>2016-10-11T00:00:00</EndTime>
+          <DurationPeriod>
+            <NumUnits>6</NumUnits>
+            <UnitMeasurementCd>MON</UnitMeasurementCd>
+          </DurationPeriod>
+        </ContractTerm>
+        <OtherInsuranceWithCompanyCd>No</OtherInsuranceWithCompanyCd>
+        <OtherOrPriorPolicy>
+          <PolicyCd>Prior</PolicyCd>
+          <LOBCd>AUTOP</LOBCd>
+          <NAICCd>99998</NAICCd>
+          <InsurerName>All Other Non Standard Companies</InsurerName>
+          <ContractTerm>
+            <ExpirationDt>2015-10-15</ExpirationDt>
+            <StartTime>2016-04-11T00:00:00</StartTime>
+            <EndTime>2016-04-11T00:00:00</EndTime>
+            <DurationPeriod>
+              <NumUnits>12</NumUnits>
+              <UnitMeasurementCd>MON</UnitMeasurementCd>
+            </DurationPeriod>
+            <ContinuousInd>0</ContinuousInd>
+          </ContractTerm>
+          <PolicyTransferInd>0</PolicyTransferInd>
+          <LengthTimeWithPreviousInsurer>
+            <NumUnits>12</NumUnits>
+            <UnitMeasurementCd>MON</UnitMeasurementCd>
+          </LengthTimeWithPreviousInsurer>
+          <Coverage>
+            <CoverageCd>BI</CoverageCd>
+            <CoverageDesc>Prior Bodily Injury Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="25">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="50">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PD</CoverageCd>
+            <CoverageDesc>Prior Property Damage-Single Limit</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="10">10000</FormatInteger>
+              <LimitAppliesToCd>PropDam</LimitAppliesToCd>
+            </Limit>
+          </Coverage>
+        </OtherOrPriorPolicy>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DownPaymentPct>16.67</DownPaymentPct>
+          <NumPayments>5</NumPayments>
+        </PaymentOption>
+        <QuoteInfo>
+          <CompanysQuoteNumber>QKYA100010277</CompanysQuoteNumber>
+          <QuotePreparedDt>2016-04-11</QuotePreparedDt>
+        </QuoteInfo>
+        <QuestionAnswer>
+          <QuestionCd>Current_Insurance_Value</QuestionCd>
+          <YesNoCd>Y</YesNoCd>
+          <Explanation>NC</Explanation>
+        </QuestionAnswer>
+        <PersApplicationInfo>
+          <InsuredOrPrincipal>
+            <GeneralPartyInfo>
+              <NameInfo>
+                <PersonName>
+                  <Surname>QuoteFour</Surname>
+                  <GivenName>Test</GivenName>
+                </PersonName>
+              </NameInfo>
+              <Addr>
+                <AddrTypeCd>StreetAddress</AddrTypeCd>
+                <Addr1>123 4Cars4Drivers</Addr1>
+                <City>BARDSTOWN</City>
+                <StateProvCd>KY</StateProvCd>
+                <PostalCode>40004</PostalCode>
+                <County>NELSON</County>
+              </Addr>
+              <Communications>
+                <PhoneInfo>
+                  <PhoneTypeCd>Phone</PhoneTypeCd>
+                  <CommunicationUseCd>Home</CommunicationUseCd>
+                  <PhoneNumber>+1-270-5165165</PhoneNumber>
+                </PhoneInfo>
+              </Communications>
+            </GeneralPartyInfo>
+            <InsuredOrPrincipalInfo>
+              <InsuredOrPrincipalRoleCd>Insured</InsuredOrPrincipalRoleCd>
+              <PersonInfo>
+                <GenderCd>M</GenderCd>
+                <BirthDt>1980-10-01</BirthDt>
+              </PersonInfo>
+            </InsuredOrPrincipalInfo>
+          </InsuredOrPrincipal>
+          <CurrentResidenceDt>2015-04-11</CurrentResidenceDt>
+          <ResidenceOwnedRentedCd>OWNED</ResidenceOwnedRentedCd>
+          <ResidenceTypeCd>MH</ResidenceTypeCd>
+          <LengthTimeCurrentAddr>
+            <DurationPeriod>
+              <NumUnits>12</NumUnits>
+              <UnitMeasurementCd>MON</UnitMeasurementCd>
+            </DurationPeriod>
+            <DurationPeriod>
+              <NumUnits>1</NumUnits>
+              <UnitMeasurementCd>YRS</UnitMeasurementCd>
+            </DurationPeriod>
+          </LengthTimeCurrentAddr>
+        </PersApplicationInfo>
+        <DriverVeh DriverRef="D1" VehRef="V1">
+          <UsePct>100</UsePct>
+        </DriverVeh>
+        <DriverVeh DriverRef="D2" VehRef="V2">
+          <UsePct>100</UsePct>
+        </DriverVeh>
+        <DriverVeh DriverRef="D3" VehRef="V3">
+          <UsePct>100</UsePct>
+        </DriverVeh>
+        <DriverVeh DriverRef="D4" VehRef="V4">
+          <UsePct>100</UsePct>
+        </DriverVeh>
+        <com.hallmark_SupportingPolicy>No</com.hallmark_SupportingPolicy>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>915.3900</Amt>
+          </DepositAmt>
+          <DownPaymentPct>16.6700</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-01</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-01</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-01</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-01</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo6">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-09-01</InstallmentDueDt>
+            <InstallmentNumber>6</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>5</NumPayments>
+          <Description>16.67% Down - 5 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>1097.5900</Amt>
+          </DepositAmt>
+          <DownPaymentPct>20.0000</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>890.70</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-11</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>890.70</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-11</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>890.70</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-11</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>890.70</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-11</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo6">
+            <InstallmentAmt>
+              <Amt>890.70</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-09-11</InstallmentDueDt>
+            <InstallmentNumber>6</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>5</NumPayments>
+          <Description>20% Down - 5 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>1371.1400</Amt>
+          </DepositAmt>
+          <DownPaymentPct>25.0000</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>835.99</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-11</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>835.99</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-11</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>835.99</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-11</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>835.99</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-11</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo6">
+            <InstallmentAmt>
+              <Amt>835.99</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-09-11</InstallmentDueDt>
+            <InstallmentNumber>6</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>5</NumPayments>
+          <Description>25% Down - 5 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>2192.4500</Amt>
+          </DepositAmt>
+          <DownPaymentPct>40.0000</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>839.66</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-11</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>839.66</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-11</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>839.66</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-11</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>839.66</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-11</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>4</NumPayments>
+          <Description>40% Down - 4 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>915.3900</Amt>
+          </DepositAmt>
+          <DownPaymentPct>16.6700</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-11</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-11</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-11</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-11</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_CASH_InstallmentInfo6">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-09-11</InstallmentDueDt>
+            <InstallmentNumber>6</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>5</NumPayments>
+          <Description>CC 16.67% Down - 5 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>FL</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>5491.09</Amt>
+          </DepositAmt>
+          <DownPaymentPct>100.0000</DownPaymentPct>
+          <NumPayments>0</NumPayments>
+          <Description>CC Pay in Full</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>MO</PaymentPlanCd>
+          <MethodPaymentCd>EFT</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>915.3900</Amt>
+          </DepositAmt>
+          <DownPaymentPct>16.6700</DownPaymentPct>
+          <InstallmentFeeAmt>
+            <Amt>60.00</Amt>
+          </InstallmentFeeAmt>
+          <InstallmentInfo id="MO_EFT_InstallmentInfo2">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-05-11</InstallmentDueDt>
+            <InstallmentNumber>2</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_EFT_InstallmentInfo3">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-06-11</InstallmentDueDt>
+            <InstallmentNumber>3</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_EFT_InstallmentInfo4">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-07-11</InstallmentDueDt>
+            <InstallmentNumber>4</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_EFT_InstallmentInfo5">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-08-11</InstallmentDueDt>
+            <InstallmentNumber>5</InstallmentNumber>
+          </InstallmentInfo>
+          <InstallmentInfo id="MO_EFT_InstallmentInfo6">
+            <InstallmentAmt>
+              <Amt>927.14</Amt>
+            </InstallmentAmt>
+            <InstallmentDueDt>2016-09-11</InstallmentDueDt>
+            <InstallmentNumber>6</InstallmentNumber>
+          </InstallmentInfo>
+          <NumPayments>5</NumPayments>
+          <Description>EFT 16.67% Down - 5 Payment</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>FL</PaymentPlanCd>
+          <MethodPaymentCd>EFT</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>5491.09</Amt>
+          </DepositAmt>
+          <DownPaymentPct>100.0000</DownPaymentPct>
+          <NumPayments>0</NumPayments>
+          <Description>EFT Pay in Full</Description>
+        </PaymentOption>
+        <PaymentOption>
+          <PaymentPlanCd>FL</PaymentPlanCd>
+          <MethodPaymentCd>CASH</MethodPaymentCd>
+          <DepositAmt>
+            <Amt>5491.09</Amt>
+          </DepositAmt>
+          <DownPaymentPct>100.0000</DownPaymentPct>
+          <NumPayments>0</NumPayments>
+          <Description>Pay in Full</Description>
+        </PaymentOption>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Policy Fee</CoverageDesc>
+          <CurrentTermAmt>
+            <Amt>20.00</Amt>
+          </CurrentTermAmt>
+        </Coverage>
+      </PersPolicy>
+      <PersAutoLineBusiness>
+        <LOBCd>AUTOP</LOBCd>
+        <LOBSubCd>NSTD</LOBSubCd>
+        <Coverage>
+          <CoverageCd>TPAC</CoverageCd>
+          <CoverageDesc>ATPA Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Collection Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>LAWFE</CoverageCd>
+          <CoverageDesc>Law Enforcement Fee (NY)</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Municipal Tax</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Municipal Tax Rate</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Policy Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Security Verification Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Stamp Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>State Tax</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>State Tax Rate</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Tax</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Uninsured Motorist Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <Coverage>
+          <CoverageCd>POLFE</CoverageCd>
+          <CoverageDesc>Recoupment Fee</CoverageDesc>
+          <CreditOrSurcharge>
+            <CreditSurchargeCd>ITCCSFEE</CreditSurchargeCd>
+          </CreditOrSurcharge>
+        </Coverage>
+        <PersDriver id="D1">
+          <GeneralPartyInfo>
+            <NameInfo>
+              <PersonName>
+                <Surname>QuoteFour</Surname>
+                <GivenName>Test</GivenName>
+              </PersonName>
+            </NameInfo>
+            <Addr>
+              <AddrTypeCd>StreetAddress</AddrTypeCd>
+              <Addr1>123 4Cars4Drivers</Addr1>
+              <City>BARDSTOWN</City>
+              <StateProvCd>KY</StateProvCd>
+              <PostalCode>40004</PostalCode>
+            </Addr>
+            <Communications>
+              <PhoneInfo>
+                <PhoneTypeCd>Phone</PhoneTypeCd>
+                <CommunicationUseCd>Home</CommunicationUseCd>
+                <PhoneNumber>+1-270-5165165</PhoneNumber>
+              </PhoneInfo>
+            </Communications>
+          </GeneralPartyInfo>
+          <DriverInfo>
+            <PersonInfo>
+              <GenderCd>M</GenderCd>
+              <BirthDt>1980-10-01</BirthDt>
+              <LengthTimeCurrentAddr>
+                <DurationPeriod>
+                  <NumUnits>12</NumUnits>
+                  <UnitMeasurementCd>MON</UnitMeasurementCd>
+                </DurationPeriod>
+              </LengthTimeCurrentAddr>
+              <MaritalStatusCd>W</MaritalStatusCd>
+              <OccupationDesc>Insurance CSR</OccupationDesc>
+              <OccupationClassCd>ALLOT</OccupationClassCd>
+              <LengthTimeEmployed>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>MON</UnitMeasurementCd>
+              </LengthTimeEmployed>
+              <EducationLevelCd>Doctorate</EducationLevelCd>
+              <LengthTimeCurrentOccupation>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>Years</UnitMeasurementCd>
+              </LengthTimeCurrentOccupation>
+              <MiscParty>
+                <MiscPartyInfo>
+                  <MiscPartyRoleCd>Employer</MiscPartyRoleCd>
+                </MiscPartyInfo>
+              </MiscParty>
+            </PersonInfo>
+            <DriversLicense>
+              <LicensedDt>1996-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+            </DriversLicense>
+            <License>
+              <LicenseTypeCd>Driver</LicenseTypeCd>
+              <LicenseStatusCd>Active</LicenseStatusCd>
+              <LicensedDt>1996-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+              <CountryCd>US</CountryCd>
+            </License>
+            <com.turborater_TemporaryVisitorLicense>0</com.turborater_TemporaryVisitorLicense>
+            <QuestionAnswer>
+              <QuestionCd>GENRL14</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+            <QuestionAnswer>
+              <QuestionCd>AUTOP05</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+          </DriverInfo>
+          <PersDriverInfo VehPrincipallyDrivenRef="V4">
+            <DefensiveDriverCd>N</DefensiveDriverCd>
+            <DriverRelationshipToApplicantCd>IN</DriverRelationshipToApplicantCd>
+            <DriverTrainingInd>0</DriverTrainingInd>
+            <GoodStudentCd>N</GoodStudentCd>
+            <MatureDriverInd>0</MatureDriverInd>
+          </PersDriverInfo>
+        </PersDriver>
+        <PersDriver id="D2">
+          <GeneralPartyInfo>
+            <NameInfo>
+              <PersonName>
+                <Surname>Two</Surname>
+                <GivenName>Driver</GivenName>
+              </PersonName>
+            </NameInfo>
+          </GeneralPartyInfo>
+          <DriverInfo>
+            <PersonInfo>
+              <GenderCd>M</GenderCd>
+              <BirthDt>1982-10-15</BirthDt>
+              <LengthTimeCurrentAddr>
+                <DurationPeriod>
+                  <NumUnits>12</NumUnits>
+                  <UnitMeasurementCd>MON</UnitMeasurementCd>
+                </DurationPeriod>
+              </LengthTimeCurrentAddr>
+              <MaritalStatusCd>P</MaritalStatusCd>
+              <OccupationDesc>Clerk</OccupationDesc>
+              <OccupationClassCd>ADM</OccupationClassCd>
+              <LengthTimeEmployed>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>MON</UnitMeasurementCd>
+              </LengthTimeEmployed>
+              <EducationLevelCd>BachelorsDegree</EducationLevelCd>
+              <LengthTimeCurrentOccupation>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>Years</UnitMeasurementCd>
+              </LengthTimeCurrentOccupation>
+              <MiscParty>
+                <MiscPartyInfo>
+                  <MiscPartyRoleCd>Employer</MiscPartyRoleCd>
+                </MiscPartyInfo>
+              </MiscParty>
+            </PersonInfo>
+            <DriversLicense>
+              <LicensedDt>2015-10-15</LicensedDt>
+              <LicenseClassCd>Valid Foreign</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+            </DriversLicense>
+            <License>
+              <LicenseTypeCd>Driver</LicenseTypeCd>
+              <LicensedDt>2015-10-15</LicensedDt>
+              <LicenseClassCd>Valid Foreign</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+            </License>
+            <com.turborater_TemporaryVisitorLicense>0</com.turborater_TemporaryVisitorLicense>
+            <QuestionAnswer>
+              <QuestionCd>GENRL14</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+            <QuestionAnswer>
+              <QuestionCd>AUTOP05</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+          </DriverInfo>
+          <PersDriverInfo VehPrincipallyDrivenRef="V1">
+            <DefensiveDriverCd>N</DefensiveDriverCd>
+            <DriverRelationshipToApplicantCd>OT</DriverRelationshipToApplicantCd>
+            <DriverTrainingInd>0</DriverTrainingInd>
+            <DriverTypeCd>U</DriverTypeCd>
+            <GoodStudentCd>N</GoodStudentCd>
+            <MatureDriverInd>0</MatureDriverInd>
+          </PersDriverInfo>
+        </PersDriver>
+        <PersDriver id="D3">
+          <GeneralPartyInfo>
+            <NameInfo>
+              <PersonName>
+                <Surname>Three</Surname>
+                <GivenName>Driver</GivenName>
+              </PersonName>
+            </NameInfo>
+          </GeneralPartyInfo>
+          <DriverInfo>
+            <PersonInfo>
+              <GenderCd>F</GenderCd>
+              <BirthDt>1990-10-15</BirthDt>
+              <LengthTimeCurrentAddr>
+                <DurationPeriod>
+                  <NumUnits>12</NumUnits>
+                  <UnitMeasurementCd>MON</UnitMeasurementCd>
+                </DurationPeriod>
+              </LengthTimeCurrentAddr>
+              <MaritalStatusCd>S</MaritalStatusCd>
+              <LengthTimeEmployed>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>MON</UnitMeasurementCd>
+              </LengthTimeEmployed>
+              <EducationLevelCd>BachelorsDegree</EducationLevelCd>
+              <LengthTimeCurrentOccupation>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>Years</UnitMeasurementCd>
+              </LengthTimeCurrentOccupation>
+              <MiscParty>
+                <MiscPartyInfo>
+                  <MiscPartyRoleCd>Employer</MiscPartyRoleCd>
+                </MiscPartyInfo>
+              </MiscParty>
+            </PersonInfo>
+            <DriversLicense>
+              <LicensedDt>2014-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+            </DriversLicense>
+            <License>
+              <LicenseTypeCd>Driver</LicenseTypeCd>
+              <LicenseStatusCd>Active</LicenseStatusCd>
+              <LicensedDt>2014-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+              <CountryCd>US</CountryCd>
+            </License>
+            <com.turborater_TemporaryVisitorLicense>0</com.turborater_TemporaryVisitorLicense>
+            <QuestionAnswer>
+              <QuestionCd>GENRL14</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+            <QuestionAnswer>
+              <QuestionCd>AUTOP05</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+          </DriverInfo>
+          <PersDriverInfo VehPrincipallyDrivenRef="V1">
+            <DefensiveDriverCd>N</DefensiveDriverCd>
+            <DriverRelationshipToApplicantCd>CH</DriverRelationshipToApplicantCd>
+            <DriverTrainingInd>0</DriverTrainingInd>
+            <GoodStudentCd>N</GoodStudentCd>
+            <MatureDriverInd>0</MatureDriverInd>
+          </PersDriverInfo>
+        </PersDriver>
+        <PersDriver id="D4">
+          <GeneralPartyInfo>
+            <NameInfo>
+              <PersonName>
+                <Surname>Four</Surname>
+                <GivenName>Driver</GivenName>
+              </PersonName>
+            </NameInfo>
+          </GeneralPartyInfo>
+          <DriverInfo>
+            <PersonInfo>
+              <GenderCd>M</GenderCd>
+              <BirthDt>1955-10-15</BirthDt>
+              <LengthTimeCurrentAddr>
+                <DurationPeriod>
+                  <NumUnits>12</NumUnits>
+                  <UnitMeasurementCd>MON</UnitMeasurementCd>
+                </DurationPeriod>
+              </LengthTimeCurrentAddr>
+              <MaritalStatusCd>S</MaritalStatusCd>
+              <LengthTimeEmployed>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>MON</UnitMeasurementCd>
+              </LengthTimeEmployed>
+              <EducationLevelCd>BachelorsDegree</EducationLevelCd>
+              <LengthTimeCurrentOccupation>
+                <NumUnits>0</NumUnits>
+                <UnitMeasurementCd>Years</UnitMeasurementCd>
+              </LengthTimeCurrentOccupation>
+              <MiscParty>
+                <MiscPartyInfo>
+                  <MiscPartyRoleCd>Employer</MiscPartyRoleCd>
+                </MiscPartyInfo>
+              </MiscParty>
+            </PersonInfo>
+            <DriversLicense>
+              <LicensedDt>1971-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+            </DriversLicense>
+            <License>
+              <LicenseTypeCd>Driver</LicenseTypeCd>
+              <LicenseStatusCd>Active</LicenseStatusCd>
+              <LicensedDt>1971-10-15</LicensedDt>
+              <LicenseClassCd>Valid</LicenseClassCd>
+              <StateProvCd>KY</StateProvCd>
+              <CountryCd>US</CountryCd>
+            </License>
+            <com.turborater_TemporaryVisitorLicense>0</com.turborater_TemporaryVisitorLicense>
+            <QuestionAnswer>
+              <QuestionCd>GENRL14</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+            <QuestionAnswer>
+              <QuestionCd>AUTOP05</QuestionCd>
+              <YesNoCd>No</YesNoCd>
+            </QuestionAnswer>
+          </DriverInfo>
+          <PersDriverInfo VehPrincipallyDrivenRef="V1">
+            <DefensiveDriverCd>N</DefensiveDriverCd>
+            <DriverRelationshipToApplicantCd>PA</DriverRelationshipToApplicantCd>
+            <DriverTrainingInd>0</DriverTrainingInd>
+            <GoodStudentCd>N</GoodStudentCd>
+            <MatureDriverInd>1</MatureDriverInd>
+          </PersDriverInfo>
+        </PersDriver>
+        <PersVeh id="V1" LocationRef="L1" RatedDriverRef="D1">
+          <Manufacturer>TOYOTA</Manufacturer>
+          <Model>COROLLA S</Model>
+          <ModelYear>2013</ModelYear>
+          <VehBodyTypeCd>PP</VehBodyTypeCd>
+          <CostNewAmt>
+            <Amt>16230</Amt>
+          </CostNewAmt>
+          <EstimatedAnnualDistance>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </EstimatedAnnualDistance>
+          <FullTermAmt>
+            <Amt>0</Amt>
+          </FullTermAmt>
+          <LeasedVehInd>0</LeasedVehInd>
+          <NumCylinders>4</NumCylinders>
+          <PurchaseDt>2015-09-23</PurchaseDt>
+          <VehIdentificationNumber>2T1BU4EE0D</VehIdentificationNumber>
+          <VehSymbolCd>1932</VehSymbolCd>
+          <AntiLockBrakeCd>4W</AntiLockBrakeCd>
+          <DaytimeRunningLightInd>0</DaytimeRunningLightInd>
+          <EngineTypeCd>G</EngineTypeCd>
+          <GaragingCd>N</GaragingCd>
+          <DistanceOneWay>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </DistanceOneWay>
+          <MultiCarDiscountInd>1</MultiCarDiscountInd>
+          <NewVehInd>1</NewVehInd>
+          <NonOwnedVehInd>0</NonOwnedVehInd>
+          <OdometerReading>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </OdometerReading>
+          <AntiTheftDeviceCd>Y</AntiTheftDeviceCd>
+          <PrincipalOperatorInd>1</PrincipalOperatorInd>
+          <SeenCarInd>0</SeenCarInd>
+          <VehPerformanceCd>BASIC</VehPerformanceCd>
+          <VehUseCd>DW</VehUseCd>
+          <FourWheelDriveInd>0</FourWheelDriveInd>
+          <QuestionAnswer>
+            <QuestionCd>AUPMA12</QuestionCd>
+            <YesNoCd>No</YesNoCd>
+          </QuestionAnswer>
+          <SeatBeltTypeCd>PassBoth</SeatBeltTypeCd>
+          <AirBagTypeCd>FrontBoth</AirBagTypeCd>
+          <SalvagedInd>0</SalvagedInd>
+          <Coverage>
+            <CoverageCd>BI</CoverageCd>
+            <CoverageDesc>Bodily Injury Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger>25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>177.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PD</CoverageCd>
+            <CoverageDesc>Property Damage-Single Limit</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PropDam</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>129.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COLL</CoverageCd>
+            <CoverageDesc>Collision</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc1</OptionTypeCd>
+              <OptionCd>B</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>797.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PIP</CoverageCd>
+            <CoverageDesc>Personal Injury Protection</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Deductible>
+              <FormatInteger oldval="100">10000</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc2</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>290.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COMP</CoverageCd>
+            <CoverageDesc>Comprehensive Coverage</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <CurrentTermAmt>
+              <Amt>103.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UM</CoverageCd>
+            <CoverageDesc>Uninsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>54.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UNDUM</CoverageCd>
+            <CoverageDesc>Underinsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>26.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RISKSTATETX</CoverageCd>
+            <CurrentTermAmt>
+              <Amt>28.37</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>EXINS</CoverageCd>
+            <CoverageDesc>Prior Insurance or In-Agency Transfer Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>HOMEDIS</CoverageCd>
+            <CoverageDesc>Homeownership Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>MCAR</CoverageCd>
+            <CoverageDesc>Multi-Car Discount</CoverageDesc>
+          </Coverage>
+        </PersVeh>
+        <PersVeh id="V2" LocationRef="L2" RatedDriverRef="D2">
+          <Manufacturer>CHEVROLET</Manufacturer>
+          <Model>IMPALA LS</Model>
+          <ModelYear>2012</ModelYear>
+          <VehBodyTypeCd>PP</VehBodyTypeCd>
+          <CostNewAmt>
+            <Amt>25645</Amt>
+          </CostNewAmt>
+          <EstimatedAnnualDistance>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </EstimatedAnnualDistance>
+          <FullTermAmt>
+            <Amt>0</Amt>
+          </FullTermAmt>
+          <LeasedVehInd>0</LeasedVehInd>
+          <NumCylinders>6</NumCylinders>
+          <PurchaseDt>2015-09-23</PurchaseDt>
+          <VehIdentificationNumber>2G1WF5E30C</VehIdentificationNumber>
+          <VehSymbolCd>1219</VehSymbolCd>
+          <AntiLockBrakeCd>4W</AntiLockBrakeCd>
+          <DaytimeRunningLightInd>0</DaytimeRunningLightInd>
+          <EngineTypeCd>G</EngineTypeCd>
+          <GaragingCd>N</GaragingCd>
+          <DistanceOneWay>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </DistanceOneWay>
+          <MultiCarDiscountInd>1</MultiCarDiscountInd>
+          <NewVehInd>1</NewVehInd>
+          <NonOwnedVehInd>0</NonOwnedVehInd>
+          <OdometerReading>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </OdometerReading>
+          <AntiTheftDeviceCd>Y</AntiTheftDeviceCd>
+          <PrincipalOperatorInd>1</PrincipalOperatorInd>
+          <SeenCarInd>0</SeenCarInd>
+          <VehPerformanceCd>H</VehPerformanceCd>
+          <VehUseCd>BU</VehUseCd>
+          <FourWheelDriveInd>0</FourWheelDriveInd>
+          <QuestionAnswer>
+            <QuestionCd>AUPMA12</QuestionCd>
+            <YesNoCd>No</YesNoCd>
+          </QuestionAnswer>
+          <SeatBeltTypeCd>PassBoth</SeatBeltTypeCd>
+          <AirBagTypeCd>FrontBoth</AirBagTypeCd>
+          <SalvagedInd>0</SalvagedInd>
+          <Coverage>
+            <CoverageCd>BI</CoverageCd>
+            <CoverageDesc>Bodily Injury Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger>25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>223.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PD</CoverageCd>
+            <CoverageDesc>Property Damage-Single Limit</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PropDam</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>163.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COLL</CoverageCd>
+            <CoverageDesc>Collision</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc1</OptionTypeCd>
+              <OptionCd>B</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>694.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PIP</CoverageCd>
+            <CoverageDesc>Personal Injury Protection</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Deductible>
+              <FormatInteger oldval="100">10000</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc2</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>292.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COMP</CoverageCd>
+            <CoverageDesc>Comprehensive Coverage</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <CurrentTermAmt>
+              <Amt>86.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RREIM</CoverageCd>
+            <CoverageDesc>Rental Reimbursement</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50">40</FormatInteger>
+              <LimitAppliesToCd>PerDay</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="1500">1200</FormatInteger>
+              <LimitAppliesToCd>MaxAmount</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>42.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UM</CoverageCd>
+            <CoverageDesc>Uninsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>54.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UNDUM</CoverageCd>
+            <CoverageDesc>Underinsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>26.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RISKSTATETX</CoverageCd>
+            <CurrentTermAmt>
+              <Amt>28.44</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>EXINS</CoverageCd>
+            <CoverageDesc>Prior Insurance or In-Agency Transfer Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>HOMEDIS</CoverageCd>
+            <CoverageDesc>Homeownership Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>MCAR</CoverageCd>
+            <CoverageDesc>Multi-Car Discount</CoverageDesc>
+          </Coverage>
+        </PersVeh>
+        <PersVeh id="V3" LocationRef="L3" RatedDriverRef="D3">
+          <Manufacturer>HONDA</Manufacturer>
+          <Model>ACCORD EX</Model>
+          <ModelYear>2014</ModelYear>
+          <VehBodyTypeCd>PP</VehBodyTypeCd>
+          <CostNewAmt>
+            <Amt>24880</Amt>
+          </CostNewAmt>
+          <EstimatedAnnualDistance>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </EstimatedAnnualDistance>
+          <FullTermAmt>
+            <Amt>0</Amt>
+          </FullTermAmt>
+          <LeasedVehInd>0</LeasedVehInd>
+          <NumCylinders>4</NumCylinders>
+          <PurchaseDt>2015-09-23</PurchaseDt>
+          <VehIdentificationNumber>1HGCR2E70E</VehIdentificationNumber>
+          <VehSymbolCd>2215</VehSymbolCd>
+          <AntiLockBrakeCd>4W</AntiLockBrakeCd>
+          <DaytimeRunningLightInd>0</DaytimeRunningLightInd>
+          <EngineTypeCd>G</EngineTypeCd>
+          <GaragingCd>N</GaragingCd>
+          <DistanceOneWay>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </DistanceOneWay>
+          <MultiCarDiscountInd>1</MultiCarDiscountInd>
+          <NewVehInd>1</NewVehInd>
+          <NonOwnedVehInd>0</NonOwnedVehInd>
+          <OdometerReading>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </OdometerReading>
+          <AntiTheftDeviceCd>Y</AntiTheftDeviceCd>
+          <PrincipalOperatorInd>1</PrincipalOperatorInd>
+          <SeenCarInd>0</SeenCarInd>
+          <VehPerformanceCd>BASIC</VehPerformanceCd>
+          <VehUseCd>DW</VehUseCd>
+          <FourWheelDriveInd>0</FourWheelDriveInd>
+          <QuestionAnswer>
+            <QuestionCd>AUPMA12</QuestionCd>
+            <YesNoCd>No</YesNoCd>
+          </QuestionAnswer>
+          <SeatBeltTypeCd>PassBoth</SeatBeltTypeCd>
+          <AirBagTypeCd>FrontBoth</AirBagTypeCd>
+          <SalvagedInd>0</SalvagedInd>
+          <Coverage>
+            <CoverageCd>BI</CoverageCd>
+            <CoverageDesc>Bodily Injury Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger>25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>133.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PD</CoverageCd>
+            <CoverageDesc>Property Damage-Single Limit</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PropDam</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>97.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COLL</CoverageCd>
+            <CoverageDesc>Collision</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc1</OptionTypeCd>
+              <OptionCd>B</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>609.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PIP</CoverageCd>
+            <CoverageDesc>Personal Injury Protection</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Deductible>
+              <FormatInteger oldval="100">10000</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc2</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>209.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COMP</CoverageCd>
+            <CoverageDesc>Comprehensive Coverage</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <CurrentTermAmt>
+              <Amt>119.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RREIM</CoverageCd>
+            <CoverageDesc>Rental Reimbursement</CoverageDesc>
+            <Limit>
+              <FormatInteger>40</FormatInteger>
+              <LimitAppliesToCd>PerDay</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>1200</FormatInteger>
+              <LimitAppliesToCd>MaxAmount</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>42.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UM</CoverageCd>
+            <CoverageDesc>Uninsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>54.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UNDUM</CoverageCd>
+            <CoverageDesc>Underinsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>26.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RISKSTATETX</CoverageCd>
+            <CurrentTermAmt>
+              <Amt>23.20</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>EXINS</CoverageCd>
+            <CoverageDesc>Prior Insurance or In-Agency Transfer Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>HOMEDIS</CoverageCd>
+            <CoverageDesc>Homeownership Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>MCAR</CoverageCd>
+            <CoverageDesc>Multi-Car Discount</CoverageDesc>
+          </Coverage>
+        </PersVeh>
+        <PersVeh id="V4" LocationRef="L4" RatedDriverRef="D4">
+          <Manufacturer>FORD</Manufacturer>
+          <Model>F150</Model>
+          <ModelYear>2014</ModelYear>
+          <VehBodyTypeCd>PU</VehBodyTypeCd>
+          <CostNewAmt>
+            <Amt>23670</Amt>
+          </CostNewAmt>
+          <EstimatedAnnualDistance>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </EstimatedAnnualDistance>
+          <FullTermAmt>
+            <Amt>0</Amt>
+          </FullTermAmt>
+          <LeasedVehInd>0</LeasedVehInd>
+          <NumCylinders>6</NumCylinders>
+          <PurchaseDt>2015-10-15</PurchaseDt>
+          <VehIdentificationNumber>1FTMF1CM0E</VehIdentificationNumber>
+          <VehSymbolCd>501</VehSymbolCd>
+          <AntiLockBrakeCd>4W</AntiLockBrakeCd>
+          <DaytimeRunningLightInd>0</DaytimeRunningLightInd>
+          <EngineTypeCd>F</EngineTypeCd>
+          <GaragingCd>N</GaragingCd>
+          <DistanceOneWay>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </DistanceOneWay>
+          <MultiCarDiscountInd>1</MultiCarDiscountInd>
+          <NewVehInd>1</NewVehInd>
+          <NonOwnedVehInd>0</NonOwnedVehInd>
+          <OdometerReading>
+            <NumUnits>0</NumUnits>
+            <UnitMeasurementCd>SMI</UnitMeasurementCd>
+          </OdometerReading>
+          <AntiTheftDeviceCd>Y</AntiTheftDeviceCd>
+          <PrincipalOperatorInd>1</PrincipalOperatorInd>
+          <SeenCarInd>0</SeenCarInd>
+          <VehPerformanceCd>INTMDT</VehPerformanceCd>
+          <VehUseCd>DW</VehUseCd>
+          <FourWheelDriveInd>0</FourWheelDriveInd>
+          <QuestionAnswer>
+            <QuestionCd>AUPMA12</QuestionCd>
+            <YesNoCd>No</YesNoCd>
+          </QuestionAnswer>
+          <SeatBeltTypeCd>PassBoth</SeatBeltTypeCd>
+          <AirBagTypeCd>FrontBoth</AirBagTypeCd>
+          <SalvagedInd>0</SalvagedInd>
+          <Coverage>
+            <CoverageCd>BI</CoverageCd>
+            <CoverageDesc>Bodily Injury Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger>25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>194.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PD</CoverageCd>
+            <CoverageDesc>Property Damage-Single Limit</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PropDam</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>142.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COLL</CoverageCd>
+            <CoverageDesc>Collision</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc1</OptionTypeCd>
+              <OptionCd>B</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>242.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>PIP</CoverageCd>
+            <CoverageDesc>Personal Injury Protection</CoverageDesc>
+            <Limit>
+              <FormatInteger>10000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Deductible>
+              <FormatInteger oldval="100">10000</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <Option>
+              <OptionTypeCd>Misc2</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>185.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>COMP</CoverageCd>
+            <CoverageDesc>Comprehensive Coverage</CoverageDesc>
+            <Deductible>
+              <FormatInteger>500</FormatInteger>
+              <DeductibleTypeCd>CL</DeductibleTypeCd>
+            </Deductible>
+            <CurrentTermAmt>
+              <Amt>49.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RREIM</CoverageCd>
+            <CoverageDesc>Rental Reimbursement</CoverageDesc>
+            <Limit>
+              <FormatInteger>30</FormatInteger>
+              <LimitAppliesToCd>PerDay</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger>900</FormatInteger>
+              <LimitAppliesToCd>MaxAmount</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>31.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>TL</CoverageCd>
+            <CoverageDesc>Towing and Labor</CoverageDesc>
+            <Limit>
+              <FormatInteger>50</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <CurrentTermAmt>
+              <Amt>6.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UM</CoverageCd>
+            <CoverageDesc>Uninsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>54.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>UNDUM</CoverageCd>
+            <CoverageDesc>Underinsured Motorist Liability</CoverageDesc>
+            <Limit>
+              <FormatInteger oldval="50000">25000</FormatInteger>
+              <LimitAppliesToCd>PerPerson</LimitAppliesToCd>
+            </Limit>
+            <Limit>
+              <FormatInteger oldval="100000">50000</FormatInteger>
+              <LimitAppliesToCd>PerAcc</LimitAppliesToCd>
+            </Limit>
+            <Option>
+              <OptionTypeCd>Option 1</OptionTypeCd>
+              <OptionCd>NS</OptionCd>
+            </Option>
+            <CurrentTermAmt>
+              <Amt>26.00</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>RISKSTATETX</CoverageCd>
+            <CurrentTermAmt>
+              <Amt>16.72</Amt>
+            </CurrentTermAmt>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>EXINS</CoverageCd>
+            <CoverageDesc>Prior Insurance or In-Agency Transfer Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>HOMEDIS</CoverageCd>
+            <CoverageDesc>Homeownership Discount</CoverageDesc>
+          </Coverage>
+          <Coverage>
+            <CoverageCd>MCAR</CoverageCd>
+            <CoverageDesc>Multi-Car Discount</CoverageDesc>
+          </Coverage>
+        </PersVeh>
+      </PersAutoLineBusiness>
+      <Location id="L1">
+        <Addr>
+          <AddrTypeCd>GaragingAddress</AddrTypeCd>
+          <Addr1>123 4Cars4Drivers</Addr1>
+          <City>BARDSTOWN</City>
+          <StateProvCd>KY</StateProvCd>
+          <PostalCode>40004</PostalCode>
+          <County>NELSON</County>
+        </Addr>
+      </Location>
+      <Location id="L2">
+        <Addr>
+          <AddrTypeCd>GaragingAddress</AddrTypeCd>
+          <Addr1>123 4Cars4Drivers</Addr1>
+          <City>BARDSTOWN</City>
+          <StateProvCd>KY</StateProvCd>
+          <PostalCode>40004</PostalCode>
+          <County>NELSON</County>
+        </Addr>
+      </Location>
+      <Location id="L3">
+        <Addr>
+          <AddrTypeCd>GaragingAddress</AddrTypeCd>
+          <Addr1>123 4Cars4Drivers</Addr1>
+          <City>BARDSTOWN</City>
+          <StateProvCd>KY</StateProvCd>
+          <PostalCode>40004</PostalCode>
+          <County>NELSON</County>
+        </Addr>
+      </Location>
+      <Location id="L4">
+        <Addr>
+          <AddrTypeCd>GaragingAddress</AddrTypeCd>
+          <Addr1>123 4Cars4Drivers</Addr1>
+          <City>BARDSTOWN</City>
+          <StateProvCd>KY</StateProvCd>
+          <PostalCode>40004</PostalCode>
+          <County>NELSON</County>
+        </Addr>
+      </Location>
+      <RemarkText>Vehicle V2:  Limit or Deductible on coverage RREIM changed to 40 from 50.</RemarkText>
+      <RemarkText>Vehicle V2:  Limit or Deductible on coverage RREIM changed to 1200 from 1500.</RemarkText>
+      <RemarkText>Vehicle V1:  Territory was changed to 40.</RemarkText>
+      <RemarkText>Vehicle V1:  Comprehensive symbol used in rating - 19.</RemarkText>
+      <RemarkText>Vehicle V1:  Collision symbol used in rating - 32.</RemarkText>
+      <RemarkText>Vehicle V2:  Territory was changed to 40.</RemarkText>
+      <RemarkText>Vehicle V2:  Comprehensive symbol used in rating - 12.</RemarkText>
+      <RemarkText>Vehicle V2:  Collision symbol used in rating - 19.</RemarkText>
+      <RemarkText>Vehicle V3:  Territory was changed to 40.</RemarkText>
+      <RemarkText>Vehicle V3:  Comprehensive symbol used in rating - 22.</RemarkText>
+      <RemarkText>Vehicle V3:  Collision symbol used in rating - 15.</RemarkText>
+      <RemarkText>Vehicle V4:  Territory was changed to 40.</RemarkText>
+      <RemarkText>Vehicle V4:  Comprehensive symbol used in rating - 5.</RemarkText>
+      <RemarkText>Vehicle V4:  Collision symbol used in rating - 1.</RemarkText>
+      <RemarkText>Vehicle V1:  Clean Risk Allocation Surcharge was not submitted into rating.</RemarkText>
+      <RemarkText>Vehicle V2:  Clean Risk Allocation Surcharge was not submitted into rating.</RemarkText>
+      <RemarkText>Vehicle V3:  Clean Risk Allocation Surcharge was not submitted into rating.</RemarkText>
+      <RemarkText>Vehicle V4:  Clean Risk Allocation Surcharge was not submitted into rating.</RemarkText>
+      <RemarkText>UMBI limit cannot exceed Bodily Injury limit. Coverage limit has been updated to 25,000/50,000.</RemarkText>
+      <RemarkText>UIMBI limit cannot exceed Bodily Injury limit. Coverage limit has been updated to 25,000/50,000.</RemarkText>
+      <PolicySummaryInfo>
+        <FullTermAmt>
+          <Amt>5471.0900</Amt>
+        </FullTermAmt>
+        <PolicyStatusCd>Success</PolicyStatusCd>
+      </PolicySummaryInfo>
+      <com.hallmark_CompanyURL><![CDATA[http://uatapp.hplagent.com/hallmark/Agency/IT/E71E4E418F024CA9AFB03F8C744762B9]]></com.hallmark_CompanyURL>
+    </PersAutoPolicyQuoteInqRs>
+  </InsuranceSvcRs>
+</ACORD>

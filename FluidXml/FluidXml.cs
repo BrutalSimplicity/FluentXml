@@ -3,6 +3,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace FluidXml
 {
@@ -190,10 +191,11 @@ namespace FluidXml
       {
         XmlDocument doc;
         if (TryGetXmlDocument(xmlNode, out doc))
-          mutNode = doc.DocumentElement;
+          if (doc.DocumentElement != null)
+            mutNode = doc.DocumentElement;
       }
       foreach (var node in nodes)
-        mutNode.AppendChild(node);
+        xmlNode.AppendChild(node);
 
       return xmlNode;
     }
@@ -633,7 +635,7 @@ namespace FluidXml
       {
         queryableXPath = ReplaceXPathArgs(xpath, args);
       }
-      return null;
+      return node.SelectSingleNode(queryableXPath);
     }
 
     /// <summary>
@@ -728,6 +730,60 @@ namespace FluidXml
       if (args.Length > 0)
         queryableXPath = ReplaceXPathArgs(xpath, args);
       return node.SelectNodes(queryableXPath).Cast<XmlNode>();
+    }
+
+    public static bool HasValue(this XmlNode node)
+    {
+      if (node == null)
+        return false;
+
+      if (string.IsNullOrWhiteSpace(node.InnerText))
+        return false;
+
+      return true;
+    }
+
+    public static int GetValueAsInt(this XmlNode node, int defaultValue = 0)
+    {
+      int val = defaultValue;
+
+      if (node.HasValue())
+      {
+        if (int.TryParse(node.InnerText, out val))
+          return val;
+      }
+      return val;
+    }
+    public static DateTime GetValueAsDateTime(this XmlNode node, DateTime defaultValue)
+    {
+      DateTime val = defaultValue;
+
+      if (node.HasValue())
+      {
+        if (DateTime.TryParse(node.InnerText, out val))
+          return val;
+      }
+      return val;
+    }
+
+    public static double GetValueAsDouble(this XmlNode node, double defaultValue = 0.0)
+    {
+      double val = defaultValue;
+
+      if (node.HasValue())
+      {
+        if (double.TryParse(node.InnerText, out val))
+          return val;
+      }
+      return val;
+    }
+
+    public static string GetValue(this XmlNode node, string defaultValue = "")
+    {
+      if (node.HasValue())
+        return node.InnerText;
+
+      return defaultValue;
     }
 
     /// <summary>
