@@ -123,8 +123,8 @@ namespace FluidXml
     /// returns the new element chain.
     /// </summary>
     /// <param name="xmlNode"></param>
-    /// <param name="tagName"></param>
-    /// <param name="value"></param>
+    /// <param name="tagName">tag name of the node</param>
+    /// <param name="value">value of the node</param>
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string value)
     {
@@ -144,7 +144,7 @@ namespace FluidXml
     /// Creates a new element and adds it to a node. Then
     /// returns the new element chain.
     /// </summary>
-    /// <param name="xmlElem"></param>
+    /// <param name="xmlNode"></param>
     /// <param name="tagName"></param>
     /// <param name="attrs">name-value pair of attributes</param>
     /// <param name="value"></param>
@@ -175,20 +175,25 @@ namespace FluidXml
     }
 
     /// <summary>
-    /// Adds a new node to a node and then returns itself.
+    /// Adds node(s) to a node
     /// </summary>
-    /// <param name="xmlElem"></param>
-    /// <param name="tagName"></param>
     /// <param name="attrs">Key-Value pair collection of attributes</param>
-    /// <param name="value"></param>
+    /// <param name="nodes">node(s) to add</param>
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, params XmlNode[] nodes)
     {
       if (xmlNode == null)
         return null;
 
+      var mutNode = xmlNode;
+      if (xmlNode.NodeType == XmlNodeType.Document)
+      {
+        XmlDocument doc;
+        if (TryGetXmlDocument(xmlNode, out doc))
+          mutNode = doc.DocumentElement;
+      }
       foreach (var node in nodes)
-        xmlNode.AppendChild(node);
+        mutNode.AppendChild(node);
 
       return xmlNode;
     }
@@ -197,7 +202,6 @@ namespace FluidXml
     /// Adds nodes to an element with tagName and then adds that
     /// node to a parent node, and then returns itself.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     /// <param name="xmlNode"></param>
     /// <param name="tagName">Name of the tag</param>
     /// <param name="node">Node to add to the tagName element</param>
@@ -210,10 +214,48 @@ namespace FluidXml
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
-      XmlNode newNode = xmlDoc.CreateElement(tagName);
-      foreach (XmlNode node in nodes)
-        newNode.AppendChild(node);
-      xmlNode.AppendChild(newNode);
+      XmlElement elem = xmlDoc.CreateElement(tagName);
+
+      foreach (var node in nodes)
+        elem.AppendChild(node);
+      xmlNode.AppendChild(elem);
+
+      return xmlNode;
+    }
+
+    /// <summary>
+    /// Adds nodes to an element with tagName and attributes, then adds that
+    /// node to a parent node, and then returns itself.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="xmlNode"></param>
+    /// <param name="tagName">Name of the tag</param>
+    /// <param name="node">Node to add to the tagName element</param>
+    /// <returns>Itself</returns>
+    public static XmlNode Add(this XmlNode xmlNode, string tagName, string[] attrs, params XmlNode[] nodes)
+    {
+      if (xmlNode == null)
+        return null;
+
+      XmlDocument xmlDoc;
+      if (!TryGetXmlDocument(xmlNode, out xmlDoc))
+        throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
+      XmlElement elem = xmlDoc.CreateElement(tagName);
+
+      if (attrs.Length > 0 && attrs.Length % 2 != 0)
+        throw new ArgumentException("Attributes array is missing a name-value pair.", "attrs");
+
+      for (int attrIndex = 0; attrIndex < attrs.Length; attrIndex += 2)
+      {
+        XmlAttribute newAttr = xmlDoc.CreateAttribute(attrs[attrIndex]);
+        newAttr.Value = attrs[attrIndex + 1];
+        elem.Attributes.Append(newAttr);
+      }
+
+      foreach (var node in nodes)
+        elem.AppendChild(node);
+      xmlNode.AppendChild(elem);
+
       return xmlNode;
     }
 

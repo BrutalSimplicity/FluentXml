@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidXml", "FluidXml\FluidXml.csproj", "{29720CC4-FBDF-4526-A403-4B4DB50735CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidXml.Tests", "FluidXml.Tests\FluidXml.Tests.csproj", "{A89BB115-033B-44D4-A360-482F5AD0FBB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidXml.Tests", "FluidXml.Tests\FluidXml.Tests.csproj", "{5F77A6F2-E25B-4482-B030-00B014A5418B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{29720CC4-FBDF-4526-A403-4B4DB50735CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29720CC4-FBDF-4526-A403-4B4DB50735CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29720CC4-FBDF-4526-A403-4B4DB50735CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A89BB115-033B-44D4-A360-482F5AD0FBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A89BB115-033B-44D4-A360-482F5AD0FBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A89BB115-033B-44D4-A360-482F5AD0FBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A89BB115-033B-44D4-A360-482F5AD0FBB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F77A6F2-E25B-4482-B030-00B014A5418B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F77A6F2-E25B-4482-B030-00B014A5418B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F77A6F2-E25B-4482-B030-00B014A5418B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F77A6F2-E25B-4482-B030-00B014A5418B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
