@@ -178,7 +178,6 @@ namespace FluidXml
     /// <summary>
     /// Adds node(s) to a node
     /// </summary>
-    /// <param name="attrs">Key-Value pair collection of attributes</param>
     /// <param name="nodes">node(s) to add</param>
     /// <returns>Itself</returns>
     public static XmlNode Add(this XmlNode xmlNode, params XmlNode[] nodes)
@@ -195,7 +194,7 @@ namespace FluidXml
             mutNode = doc.DocumentElement;
       }
       foreach (var node in nodes)
-        xmlNode.AppendChild(node);
+        mutNode.AppendChild(node);
 
       return xmlNode;
     }

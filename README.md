@@ -191,8 +191,8 @@ Now, let's try to find only books whose price is less than $10.00
 
 ```csharp
 var nodes = from node in doc.XPathSelectMany("/Catalog/book")
-            where double.Parse(node["price"].InnerText) < 10
-            select node;
+            where node["price"].GetValueAsDouble() < 10
+            select node
 ```
 
 ```xml
