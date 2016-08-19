@@ -243,4 +243,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/FluidXml/FluidXml.nuspec
+
+*.nuget
+*.nupkg

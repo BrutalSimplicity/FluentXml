@@ -130,7 +130,7 @@ namespace FluidXml
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string value)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -153,7 +153,7 @@ namespace FluidXml
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string[] attrs, string value)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -161,15 +161,9 @@ namespace FluidXml
       XmlElement elem = xmlDoc.CreateElement(tagName);
       elem.InnerText = value;
 
-      if (attrs.Length > 0 && attrs.Length % 2 != 0)
-        throw new ArgumentException("Attributes array is missing a name-value pair.", "attrs");
+      if (attrs != null)
+        AddElementAttributes(elem, attrs);
 
-      for (int attrIndex = 0; attrIndex < attrs.Length; attrIndex += 2)
-      {
-        XmlAttribute newAttr = xmlDoc.CreateAttribute(attrs[attrIndex]);
-        newAttr.Value = attrs[attrIndex + 1];
-        elem.Attributes.Append(newAttr);
-      }
       xmlNode.AppendChild(elem);
 
       return xmlNode;
@@ -183,7 +177,7 @@ namespace FluidXml
     public static XmlNode Add(this XmlNode xmlNode, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       var mutNode = xmlNode;
       if (xmlNode.NodeType == XmlNodeType.Document)
@@ -210,7 +204,7 @@ namespace FluidXml
     public static XmlNode Add(this XmlNode xmlNode, string tagName, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -236,22 +230,15 @@ namespace FluidXml
     public static XmlNode Add(this XmlNode xmlNode, string tagName, string[] attrs, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
         throw new NoXmlDocumentException(m_noXmlDocExceptionMessage);
       XmlElement elem = xmlDoc.CreateElement(tagName);
 
-      if (attrs.Length > 0 && attrs.Length % 2 != 0)
-        throw new ArgumentException("Attributes array is missing a name-value pair.", "attrs");
-
-      for (int attrIndex = 0; attrIndex < attrs.Length; attrIndex += 2)
-      {
-        XmlAttribute newAttr = xmlDoc.CreateAttribute(attrs[attrIndex]);
-        newAttr.Value = attrs[attrIndex + 1];
-        elem.Attributes.Append(newAttr);
-      }
+      if (attrs != null)
+        AddElementAttributes(elem, attrs);
 
       foreach (var node in nodes)
         elem.AppendChild(node);
@@ -271,7 +258,7 @@ namespace FluidXml
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string value)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -294,7 +281,7 @@ namespace FluidXml
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string[] attrs, string value)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -319,7 +306,7 @@ namespace FluidXml
     public static XmlNode Insert(this XmlNode xmlNode, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       foreach (var node in nodes)
         xmlNode.PrependChild(node);
@@ -339,7 +326,7 @@ namespace FluidXml
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -364,7 +351,7 @@ namespace FluidXml
     public static XmlNode Insert(this XmlNode xmlNode, string tagName, string[] attrs, params XmlNode[] nodes)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       XmlDocument xmlDoc;
       if (!TryGetXmlDocument(xmlNode, out xmlDoc))
@@ -390,7 +377,7 @@ namespace FluidXml
     public static XmlNode InsertBefore(this XmlNode xmlNode, string childName, XmlNode newNode)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       if (xmlNode[childName] != null)
         xmlNode.InsertBefore(newNode, xmlNode[childName]);
@@ -407,7 +394,7 @@ namespace FluidXml
     public static XmlNode InsertAfter(this XmlNode xmlNode, string childName, XmlNode newNode)
     {
       if (xmlNode == null)
-        return null;
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
 
       if (xmlNode[childName] != null)
         xmlNode.InsertAfter(newNode, xmlNode[childName]);
@@ -424,7 +411,7 @@ namespace FluidXml
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string tagValue)
     {
       if (doc == null)
-        return null;
+        throw new ArgumentNullException("doc", m_docNullExceptionMessage);
 
       var elem = doc.CreateElement(tagName);
       elem.InnerText = tagValue;
@@ -441,7 +428,7 @@ namespace FluidXml
     public static XmlElement NewElement(this XmlDocument doc, string tagName, params XmlNode[] nodes)
     {
       if (doc == null)
-        return null;
+        throw new ArgumentNullException("doc", m_docNullExceptionMessage);
 
       var elem = doc.CreateElement(tagName);
       foreach (var node in nodes)
@@ -460,7 +447,7 @@ namespace FluidXml
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string[] attrs, string tagValue)
     {
       if (doc == null)
-        return null;
+        throw new ArgumentNullException("doc", m_docNullExceptionMessage);
 
       var elem = doc.CreateElement(tagName);
       elem.InnerText = tagValue;
@@ -482,7 +469,7 @@ namespace FluidXml
     public static XmlElement NewElement(this XmlDocument doc, string tagName, string[] attrs, params XmlNode[] nodes)
     {
       if (doc == null)
-        return null;
+        throw new ArgumentNullException("doc", m_docNullExceptionMessage);
 
       var elem = doc.CreateElement(tagName);
       foreach (var node in nodes)
@@ -525,6 +512,9 @@ namespace FluidXml
     /// <returns>Enumerable set of XmlNodes</returns>
     public static IEnumerable<XmlNode> Descendants(this XmlNode xmlNode, params XmlNodeType[] types)
     {
+      if (xmlNode == null)
+        throw new ArgumentNullException("xmlNode", m_nodeNullExceptionMessage);
+
       Stack<XmlNode> nodeStack = new Stack<XmlNode>();
       Stack<List<XmlNode>> lastVisitedStack = new Stack<List<XmlNode>>();
       XmlNode currNode = (xmlNode is XmlDocument) ? ((XmlDocument)xmlNode).DocumentElement : xmlNode;
@@ -595,20 +585,20 @@ namespace FluidXml
     /// <returns>Enumerable set of child XmlNodes</returns>
     public static IEnumerable<XmlNode> Elements(this XmlNode node, string elementName = null)
     {
-      if (node != null)
+      if (node == null)
+        throw new ArgumentNullException("node", m_nodeNullExceptionMessage);
+
+      if (string.IsNullOrEmpty(elementName))
       {
-        if (string.IsNullOrEmpty(elementName))
-        {
-          foreach (XmlNode child in node.ChildNodes)
-            if (node.NodeType == XmlNodeType.Element)
-              yield return child;
-        }
-        else
-        {
-          foreach (XmlNode child in node.ChildNodes)
-            if (node.NodeType == XmlNodeType.Element && node.LocalName == elementName)
-              yield return child;
-        }
+        foreach (XmlNode child in node.ChildNodes)
+          if (node.NodeType == XmlNodeType.Element)
+            yield return child;
+      }
+      else
+      {
+        foreach (XmlNode child in node.ChildNodes)
+          if (node.NodeType == XmlNodeType.Element && node.LocalName == elementName)
+            yield return child;
       }
     }
 
@@ -627,7 +617,7 @@ namespace FluidXml
     public static XmlNode XPathSelectSingle(this XmlNode node, string xpath, params string[] args)
     {
       if (node == null)
-        return null;
+        throw new ArgumentNullException("node", m_nodeNullExceptionMessage);
 
       string queryableXPath = xpath;
       if (args.Length > 0)
@@ -723,7 +713,7 @@ namespace FluidXml
     public static IEnumerable<XmlNode> XPathSelectMany(this XmlNode node, string xpath, params string[] args)
     {
       if (node == null)
-        return null;
+        throw new ArgumentNullException("node", m_nodeNullExceptionMessage);
 
       string queryableXPath = xpath;
       if (args.Length > 0)
@@ -731,6 +721,11 @@ namespace FluidXml
       return node.SelectNodes(queryableXPath).Cast<XmlNode>();
     }
 
+    /// <summary>
+    /// Determines whether an XmlNode has a value (an InnerText value)
+    /// </summary>
+    /// <param name="node">Node to check for value</param>
+    /// <returns>True if the node has a value, false otherwise.</returns>
     public static bool HasValue(this XmlNode node)
     {
       if (node == null)
@@ -742,6 +737,12 @@ namespace FluidXml
       return true;
     }
 
+    /// <summary>
+    /// Gets the InnerText of a node as an integer
+    /// </summary>
+    /// <param name="node">node to grab the integer from</param>
+    /// <param name="defaultValue">[Optional] default value to use if integer conversion fails</param>
+    /// <returns>Integer value of inner text, defaultValue on failure</returns>
     public static int GetValueAsInt(this XmlNode node, int defaultValue = 0)
     {
       int val = defaultValue;
@@ -753,7 +754,14 @@ namespace FluidXml
       }
       return val;
     }
-    public static DateTime GetValueAsDateTime(this XmlNode node, DateTime defaultValue)
+
+    /// <summary>
+    /// Gets the InnerText of a node as a DateTime
+    /// </summary>
+    /// <param name="node">node to grab the DateTime from</param>
+    /// <param name="defaultValue">[Optional] default value to use if DateTime conversion fails</param>
+    /// <returns>DateTime value of inner text, defaultValue on failure</returns>
+    public static DateTime GetValueAsDateTime(this XmlNode node, DateTime defaultValue = default(DateTime))
     {
       DateTime val = defaultValue;
 
@@ -765,6 +773,12 @@ namespace FluidXml
       return val;
     }
 
+    /// <summary>
+    /// Gets the InnerText of a node as a double
+    /// </summary>
+    /// <param name="node">node to grab the double from</param>
+    /// <param name="defaultValue">[Optional] default value to use if double conversion fails</param>
+    /// <returns>Double value of inner text, defaultValue on failure</returns>
     public static double GetValueAsDouble(this XmlNode node, double defaultValue = 0.0)
     {
       double val = defaultValue;
@@ -777,6 +791,12 @@ namespace FluidXml
       return val;
     }
 
+    /// <summary>
+    /// Gets the InnerText of a node
+    /// </summary>
+    /// <param name="node">node to grab the value from</param>
+    /// <param name="defaultValue">[Optional] default value to use if the node doesn't have a value</param>
+    /// <returns>Value of inner text, defaultValue on failure</returns>
     public static string GetValue(this XmlNode node, string defaultValue = "")
     {
       if (node.HasValue())
@@ -846,6 +866,12 @@ namespace FluidXml
       }
     }
 
+    /// <summary>
+    /// Tries to get the XmlDcoument referece of a node
+    /// </summary>
+    /// <param name="node"></param>
+    /// <param name="doc">The XmlDocument that owns the node</param>
+    /// <returns>True if the node's XmlDocument is found, false otherwise</returns>
     private static bool TryGetXmlDocument(XmlNode node, out XmlDocument doc)
     {
       if (node == null)
@@ -861,6 +887,11 @@ namespace FluidXml
       return true;
     }
 
+    /// <summary>
+    /// Adds an array of attributes to an element
+    /// </summary>
+    /// <param name="node"></param>
+    /// <param name="attrs"></param>
     private static void AddElementAttributes(XmlNode node, string[] attrs)
     {
       if (attrs.Length > 0 && attrs.Length % 2 != 0)
@@ -876,5 +907,7 @@ namespace FluidXml
     }
 
     private static string m_noXmlDocExceptionMessage = "Node doesn't contain a reference to an instance of XmlDocument";
+    private static string m_nodeNullExceptionMessage = "The XmlNode for this method cannot be null.";
+    private static string m_docNullExceptionMessage = "The XmlDocument for this method cannot be null.";
   }
 }
