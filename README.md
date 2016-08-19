@@ -12,6 +12,10 @@ You might wonder, why not just copy over the tree from XmlDocument to XLinq, whi
 
 You can install the Nuget package using the nuget command line tool. If you're in Visual Studio you can also get it through the Nuget Package Manager tool.
 
+```
+nuget install FluidXml
+```
+
 ## Examples
 
 ### Creating Xml
@@ -265,3 +269,7 @@ var nodes = doc.XPathSelectMany("/Catalog/book[price < $value and number(transla
    <description>After the collapse of a nanotechnology society in England, the young survivors lay the foundation for a new society.</description>
 </book>
 ```
+
+## Advanced Examples
+
+There are many more advanced examples you can view in the unit tests project *FluidXml.Tests*.
