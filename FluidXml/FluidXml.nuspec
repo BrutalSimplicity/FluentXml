@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FluidXml</id>
+    <version>1.0.0.1</version>
+    <title>FluidXml - XmlDocument Extensions</title>
+    <authors>Kory Taborn</authors>
+    <projectUrl>https://github.com/BrutalSimplicity/FluidXml</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>XmlDocument wrapper that provides an XLinq-like API interface.</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>XmlDocument extensions XmlDoc Fluent Xml Fluid Functional</tags>
+  </metadata>
+  <files>
+    <file src="bin/Release/FluidXml.dll" target="lib/net40"/>
+  </files>
+</package>
